@@ -10,18 +10,20 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    env:
+      working-dir: ./cloud/NoiseMonitoring
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Navigate to function project
-      run: cd cloud/NoiseMonitoring
     - name: Install dependencies
       run: dotnet restore
+      working-directory: ${{working-dir}}
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: ${{working-dir}}
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: ${{working-dir}}
