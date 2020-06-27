@@ -20,10 +20,6 @@ namespace NoiseMonitoring
         {
             public string DeviceId { get; set; }
             public TwinCollection thresholdProps { get; set; }
-            public int minValue { get; set; }
-            public int maxValue { get; set; }
-            public int amberThreshold { get; set; }
-            public int redThreshold { get; set; }
         }
         private static RegistryManager registryManager;
         [FunctionName("GetDevices")]
