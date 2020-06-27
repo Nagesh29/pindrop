@@ -34,8 +34,8 @@ namespace NoiseMonitoring
             log.LogInformation("C# HTTP trigger function processed a request.");
             try
             {
-                var iotHubServiceConnString = Environment.GetEnvironmentVariable("iotHubConnectionString");
-                registryManager = RegistryManager.CreateFromConnectionString(iotHubServiceConnString);
+                var iotHubServiceConnectionString = Environment.GetEnvironmentVariable("iotHubServiceConnectionString");
+                registryManager = RegistryManager.CreateFromConnectionString(iotHubServiceConnectionString);
                 string devices = "";
                 var query = registryManager.CreateQuery("SELECT * FROM devices");
                 while (query.HasMoreResults)
